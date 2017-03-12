@@ -1,0 +1,129 @@
+@import '../variables';
+
+.button {
+  background: 0;
+  border: 2px solid $color-black;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  outline: 0;
+  padding: .5em .75em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  user-select: none;
+
+  &:disabled {
+    border-color: $color-lightgrey;
+    color: $color-lightgrey;
+    cursor: default;
+  }
+
+  &:hover,
+  &:focus {
+    &:not([disabled]) {
+      border-color: $color-midgrey;
+      color: $color-midgrey;
+
+      &[data-tooltip] {
+        &:before {
+          opacity: 1;
+        }
+
+        &[data-position='top'] {
+          &:before {
+            transform: rotate(45deg) scale(1);
+          }
+        }
+
+        &[data-position='bottom'] {
+          &:before {
+            transform: rotate(-45deg) scale(1);
+          }
+        }
+
+        &:after {
+          opacity: 1;
+          transform: translateX(-50%) scale(1);
+        }
+      }
+    }
+  }
+
+  &[data-tooltip] {
+    &:before {
+      background: $color-white;
+      border: 1px solid $color-lightgrey;
+      content: '';
+      height: .5em;
+      opacity: 0;
+      position: absolute;
+      transition: all .1s ease;
+      width: .5em;
+      z-index: 2;
+    }
+
+    &:after {
+      border: 1px solid $color-lightgrey;
+      border-radius: 4px;
+      color: $color-black;
+      content: attr(data-tooltip);
+      font-size: .75em;
+      font-style: normal;
+      font-weight: 300;
+      opacity: 0;
+      padding: .5em .75em;
+      position: absolute;
+      text-align: left;
+      transform: translateX(-50%) scale(0);
+      transform-origin: center bottom;
+      transition: all .1s ease;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    &[data-position='top'] {
+      &:before,
+      &:after {
+        bottom: 100%;
+        left: 50%;
+      }
+
+      &:before {
+        border-left-style: none;
+        border-top-style: none;
+        margin-bottom: 2px;
+        transform: rotate(45deg) scale(0);
+        transform-origin: center top;
+      }
+
+      &:after {
+        margin-bottom: calc(.39em + 2px);
+      }
+    }
+
+    &[data-position='bottom'] {
+      &:before,
+      &:after {
+        left: 50%;
+        top: 100%;
+      }
+
+      &:before {
+        border-bottom-style: none;
+        border-left-style: none;
+        margin-top: 2px;
+        transform: rotate(-45deg) scale(0);
+        transform-origin: center bottom;
+      }
+
+      &:after {
+        margin-top: calc(.39em + 2px);
+      }
+    }
+  }
+}

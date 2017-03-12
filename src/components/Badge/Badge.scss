@@ -1,0 +1,26 @@
+@import '../variables';
+
+.badge {
+  display: inline-block;
+  font-size: 16px;
+  padding: 1em;
+  position: relative;
+
+  .badge--mark {
+    align-content: center;
+    align-items: center;
+    background-color: $color-lightgrey;
+    border-radius: 50%;
+    color: $color-black;
+    display: flex;
+    flex-flow: row wrap;
+    font-size: .75em;
+    font-weight: 400;
+    height: 1.5em;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.5em;
+  }
+}

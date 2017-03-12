@@ -1,0 +1,56 @@
+@import '../variables';
+
+.menu {
+  border: 1px solid $color-lightgrey;
+  display: inline-block;
+  font-size: 16px;
+
+  &[hidden] {
+    visibility: hidden;
+  }
+}
+
+.menu--separator {
+  background-color: $color-lightgrey;
+  border: 0;
+  height: 1px;
+}
+
+.menu--item {
+  button {
+    background: 0;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    line-height: 2em;
+    outline: 0;
+    // text-decoration: none;
+    white-space: nowrap;
+    width: 100%;
+
+    &:disabled {
+      cursor: default;
+    }
+
+    &:hover {
+      &:not([disabled]) {
+        background-color: $color-silver;
+      }
+    }
+
+    &:focus {
+      &:not([disabled]) {
+        background-color: $color-lightgrey;
+      }
+    }
+
+    span {
+      margin: .5em;
+    }
+  }
+
+  .menu {
+    position: absolute;
+  }
+}

@@ -1,0 +1,36 @@
+@import '../variables';
+
+.tabs {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  background: 0;
+  border: 0;
+  border-bottom: 1px solid $color-lightgrey;
+  color: $color-black;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  outline: 0;
+  padding: .5em 1em;
+  // text-decoration: none;
+
+  &:hover,
+  &:focus {
+    border-bottom-color: $color-midgrey;
+  }
+
+  &.selected {
+    border-bottom-color: $color-black;
+  }
+}
+
+.tab--pane {
+  &[hidden] {
+    visibility: hidden;
+  }
+}
