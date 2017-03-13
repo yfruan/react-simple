@@ -37,7 +37,7 @@ class Menu extends Component {
     };
     if (!isDescendant(this.menu, event.target)) {
       this.setState({
-        focusedIndex: -1,
+        focusedIndex: -1
       });
     }
   }
@@ -61,8 +61,9 @@ class Menu extends Component {
     const items = [];
     let counter = 0;
     Children.forEach(children, (item, index) => {
+      let newItem = item;
       if (isValidElement(item) && item.type === MenuItem) {
-        item = cloneElement(item, {
+        newItem = cloneElement(newItem, {
           key: item.id || index,
           hidden: hidden || false,
           menuHidden: this.state.focusedIndex !== counter,
@@ -72,7 +73,7 @@ class Menu extends Component {
         });
         counter += 1;
       }
-      items.push(item);
+      items.push(newItem);
     });
 
     return (

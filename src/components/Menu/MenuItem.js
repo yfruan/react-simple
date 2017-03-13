@@ -44,7 +44,7 @@ class MenuItem extends Component {
     if (isValidElement(children) && children.type === Menu) {
       submenu = cloneElement(children, {
         isRoot: false,
-        hidden: this.state.menuHidden,
+        hidden: this.state.menuHidden
       });
     }
 
