@@ -16,7 +16,7 @@
     "indent": [2, 2, {"SwitchCase": 1}],
     "no-console": 0,
     "no-alert": 0,
-    "max-len": ["error", 200],
+    "max-len": ["error", 400],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/forbid-prop-types": [1, { "forbid": ["any"] }]
   },

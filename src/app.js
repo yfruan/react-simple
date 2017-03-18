@@ -5,8 +5,49 @@ import Loading from './components/Loading';
 import Badge from './components/Badge';
 import { Tabs, Tab } from './components/Tabs';
 import { Menu, MenuItem, Separator } from './components/Menu';
+import Table from './components/ResponsiveTable';
 
 a11y(React);
+
+const tableHeader = {
+  title: 'Book Title',
+  author: 'Author',
+  year: 'Year',
+  ISBN: 'ISBN'
+};
+
+const tableData = [
+  {
+    title: 'JavaScript: The Definitive Guide',
+    author: 'David Flanagan',
+    year: '2006',
+    ISBN: '9780596101992'
+  },
+  {
+    title: 'JavaScript: The Good Parts',
+    author: 'Douglas Crockford',
+    year: '2008',
+    ISBN: '9780596517748'
+  },
+  {
+    title: 'Secrets of the JavaScript Ninja',
+    author: 'John Resig / Bear Bibeault',
+    year: '2012',
+    ISBN: '9781933988696'
+  },
+  {
+    title: 'Functional JavaScript',
+    author: 'Michael Fogus',
+    year: '2013',
+    ISBN: '9781449360726'
+  },
+  {
+    title: 'High Performance JavaScript',
+    author: 'Nicholas C. Zakas',
+    year: '2010',
+    ISBN: '9780596802790'
+  },
+];
 
 const App = () =>
   <div>
@@ -101,7 +142,9 @@ const App = () =>
         </Menu>
       </MenuItem>
     </Menu>
-    <h2 style={{ marginBottom: '20px' }}>Table</h2>
+
+    <h2 style={{ marginBottom: '20px' }}>Responsive Table</h2>
+    <Table header={tableHeader} data={tableData} selectable enableSelectAll multiSelectable onRowSeleted={(index,selected) => {console.log(`${selected ? 'selected' : 'deselected'} row `, index);}} onAllRowSelected={(selected) => {console.log(`all rows ${selected ? 'selected' : 'deselected'}`);}}/>
 
   </div>;
 

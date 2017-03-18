@@ -1,0 +1,73 @@
+@import '../variables';
+@import '../utils';
+
+table {
+  border-collapse: collapse;
+  cursor: default;
+  font-size: 16px;
+  text-align: left;
+
+  &.table--selectable {
+    td {
+      cursor: pointer;
+    }
+  }
+
+  th {
+    display: none;
+  }
+
+  td {
+    display: block;
+    padding: .25em 1em;
+
+    &.column--checkbox {
+      display: none;
+
+      @include breakpoint(medium) {
+        display: table-cell;
+      }
+    }
+
+    &:before {
+      content: attr(data-header);
+      display: inline-block;
+      font-weight: bold;
+      margin-right: .5em;
+
+      @include breakpoint(medium) {
+        display: none;
+      }
+    }
+  }
+
+  th,
+  td {
+    white-space: nowrap;
+
+    [type='checkbox'] {
+      cursor: pointer;
+      display: block;
+      transform: scale(1.5);
+    }
+
+    @include breakpoint(medium) {
+      display: table-cell;
+      padding: 1em;
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid $color-lightgrey;
+  }
+}
+
+:global {
+  .row--striped {
+    background-color: $color-silver;
+  }
+
+  .row--selected {
+    background-color: $color-lightgrey;
+  }
+}
