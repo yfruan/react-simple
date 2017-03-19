@@ -1,5 +1,6 @@
 import CSSModules from 'react-css-modules';
 import React, { Component, PropTypes } from 'react';
+import { strToHash } from '../utils';
 import styles from './Table.scss';
 
 class Table extends Component {
@@ -78,16 +79,16 @@ class Table extends Component {
         <thead>
           <tr role="row" tabIndex={0}>
             {displayRowCheckbox ? <th><input aria-label="select" type="checkbox" onClick={this.handleHeaderChecked} checked={this.state.allSelected} disabled={!multiSelectable || !enableSelectAll} /></th> : ''}
-            {Object.values(header).map((headerColumn, index) => (<th>{headerColumn}</th>)) }
+            {Object.values(header).map((headerColumn, index) => (<th key={strToHash(`column-${index}-${headerColumn}`)}>{headerColumn}</th>)) }
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) =>
-            (<tr role="row" tabIndex={0} data-row={index} onClick={this.handleClick} className={[(index % 2 === 1) && striped ? 'row--striped' : '', this.state.selectedRows.includes(index) ? 'row--selected' : ''].join(' ')}>
-              {displayRowCheckbox ? <td styleName="column--checkbox"><input aria-label="select" type="checkbox" checked={this.state.selectedRows.includes(index)} /></td> : ''}
+          {data.map((row, rowIndex) =>
+            (<tr key={strToHash(`row-${rowIndex}-${JSON.stringify(row)}`)} role="row" tabIndex={0} data-row={rowIndex} onClick={this.handleClick} className={[(rowIndex % 2 === 1) && striped ? 'row--striped' : '', this.state.selectedRows.includes(rowIndex) ? 'row--selected' : ''].join(' ')}>
+              {displayRowCheckbox ? <td styleName="column--checkbox"><input aria-label="select" type="checkbox" checked={this.state.selectedRows.includes(rowIndex)} /></td> : ''}
               {
-                Object.keys(row).map(columnKey =>
-                (<td data-header={header[columnKey]}>{row[columnKey]}</td>))
+                Object.keys(row).map((columnKey, columnIndex) =>
+                (<td key={strToHash(`row-${rowIndex}_column-${columnIndex}-${row[columnKey]}`)} data-header={header[columnKey]}>{row[columnKey]}</td>))
               }
             </tr>))}
         </tbody>

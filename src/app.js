@@ -46,7 +46,7 @@ const tableData = [
     author: 'Nicholas C. Zakas',
     year: '2010',
     ISBN: '9780596802790'
-  },
+  }
 ];
 
 const App = () =>
