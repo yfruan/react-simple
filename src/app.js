@@ -6,6 +6,7 @@ import Badge from './components/Badge';
 import { Tabs, Tab } from './components/Tabs';
 import { Menu, MenuItem, Separator } from './components/Menu';
 import Table from './components/ResponsiveTable';
+import MultiLineEllipsis from './components/MultiLineEllipsis';
 
 a11y(React);
 
@@ -46,8 +47,25 @@ const tableData = [
     author: 'Nicholas C. Zakas',
     year: '2010',
     ISBN: '9780596802790'
+  },
+  {
+    title: 'You Don\'t Know JS',
+    author: <input aria-label="input test" onClick={(event) => { console.log('input focused'); event.stopPropagation(); }} placeholder="Kyle Simpson" />,
+    year: '2010',
+    ISBN: '9780596802790'
   }
 ];
+
+const bigContent = 'Based on two popular talks from author Lea Verou—including CSS3 Secrets:' +
+      '10 things you may not know about CSS—this practical guide provides intermediate to advanced' +
+      'CSS developers with more than 40 undocumented techniques and tips for using CSS3 to create better websites.' +
+      'The talks that spawned this book have been top-rated by attendees in every conference they were presented,' +
+      'and praised in industry media such as .net magazine.' +
+      'Get information you won’t find in any other book' +
+      'Learn through small, easily digestible chapters' +
+      'Helps you understand CSS more deeply so you can improve your own solutions' +
+      'Apply Lea’s techniques to practically every CSS problem you face' +
+      'Gain tips from a rockstar author who serves as an Invited Expert in W3C’s CSS Working Group';
 
 const App = () =>
   <div>
@@ -144,7 +162,10 @@ const App = () =>
     </Menu>
 
     <h2 style={{ marginBottom: '20px' }}>Responsive Table</h2>
-    <Table header={tableHeader} data={tableData} selectable enableSelectAll multiSelectable onRowSeleted={(index,selected) => {console.log(`${selected ? 'selected' : 'deselected'} row `, index);}} onAllRowSelected={(selected) => {console.log(`all rows ${selected ? 'selected' : 'deselected'}`);}}/>
+    <Table header={tableHeader} data={tableData} selectable enableSelectAll multiSelectable onRowSeleted={(index, selected) => { console.log(`${selected ? 'selected' : 'deselected'} row `, index); }} onAllRowSelected={(selected) => { console.log(`all rows ${selected ? 'selected' : 'deselected'}`); }} />
+
+    <h2 style={{ marginBottom: '20px' }}>Multi-Line ellipsis</h2>
+    <MultiLineEllipsis content={bigContent} mark={<a href="">ReadMe</a>} markStyle={{ width: '8em', marginLeft: '-8em' }} />
 
   </div>;
 
