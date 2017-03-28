@@ -10,12 +10,24 @@ import MultiLineEllipsis from './components/MultiLineEllipsis';
 
 a11y(React);
 
-const tableHeader = {
-  title: 'Book Title',
-  author: 'Author',
-  year: 'Year',
-  ISBN: 'ISBN'
-};
+const tableColumns = [
+  {
+    index: 'title',
+    value: 'Book Title'
+  },
+  {
+    index: 'author',
+    value: 'Author'
+  },
+  {
+    index: 'year',
+    value: 'Year'
+  },
+  {
+    index: 'ISBN',
+    value: 'ISBN'
+  }
+];
 
 const tableData = [
   {
@@ -162,7 +174,7 @@ const App = () =>
     </Menu>
 
     <h2 style={{ marginBottom: '20px' }}>Responsive Table</h2>
-    <Table header={tableHeader} data={tableData} selectable enableSelectAll multiSelectable onRowSeleted={(index, selected) => { console.log(`${selected ? 'selected' : 'deselected'} row `, index); }} onAllRowSelected={(selected) => { console.log(`all rows ${selected ? 'selected' : 'deselected'}`); }} />
+    <Table columns={tableColumns} data={tableData} selectable enableSelectAll multiSelectable onRowSeleted={(index, selected) => { console.log(`${selected ? 'selected' : 'deselected'} row `, index); }} onAllRowSelected={(selected) => { console.log(`all rows ${selected ? 'selected' : 'deselected'}`); }} />
 
     <h2 style={{ marginBottom: '20px' }}>Multi-Line ellipsis</h2>
     <MultiLineEllipsis content={bigContent} mark={<a href="">ReadMe</a>} markStyle={{ width: '8em', marginLeft: '-8em' }} />

@@ -30,7 +30,7 @@ table {
     }
 
     &:before {
-      content: attr(data-header);
+      content: attr(data-column);
       display: inline-block;
       font-weight: bold;
       margin-right: .5em;
