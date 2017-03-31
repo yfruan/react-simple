@@ -41,7 +41,7 @@ class Tabs extends Component {
 
         tabs.push(element);
         tabPanes.push(
-          <div styleName="tab--pane" key={element.props.id || index} hidden={index !== this.state.selectedIndex}>
+          <div styleName="tab-pane" key={element.props.id || index} hidden={index !== this.state.selectedIndex}>
             {tab.props.children}
           </div>
         );

@@ -4,10 +4,10 @@ import styles from './MultiLineEllipsis.scss';
 
 const MultiLineEllipsis = ({ className, style, content, mark, contentStyle, markStyle }) =>
   (<div className={className} style={style} styleName="ellipsis">
-    <div styleName="ellipsis--content" style={contentStyle}>
+    <div styleName="ellipsis-content" style={contentStyle}>
       {content}
     </div>
-    <div styleName="ellipsis--mark" style={markStyle}>
+    <div styleName="ellipsis-mark" style={markStyle}>
       {mark || <span>...</span>}
     </div>
   </div>);

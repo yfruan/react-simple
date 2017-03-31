@@ -49,7 +49,7 @@ class MenuItem extends Component {
     }
 
     return (
-      <div className={className} style={style} styleName="menu--item">
+      <div className={className} style={style} styleName="menu-item">
         <button tabIndex={0} disabled={disabled} onClick={this.handleClick}>
           {leftIcon}
           <span>{label}</span>

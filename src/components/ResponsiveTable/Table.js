@@ -23,7 +23,7 @@ class Table extends Component {
         const row = parseInt(rowDom.getAttribute('data-id'), 10);
         let selectedRows;
         let allSelected = false;
-        if (rowDom.classList.contains('row--selected')) {
+        if (rowDom.classList.contains('row_selected')) {
           selectedRows = Object.assign(this.state.selectedRows);
           selectedRows.splice(selectedRows.indexOf(row), 1);
           onRowSeleted(row, false);
@@ -74,7 +74,7 @@ class Table extends Component {
     } = this.props;
 
     return (
-      <table className={className} style={style} styleName={selectable ? 'table--selectable' : ''}>
+      <table className={className} style={style} styleName={selectable ? 'table_selectable' : ''}>
         <thead>
           <tr role="row" tabIndex={0}>
             {displayRowCheckbox ? <th><input aria-label="select" type="checkbox" onClick={this.handleAllChecked} checked={this.state.allSelected} disabled={!multiSelectable || !enableSelectAll} /></th> : ''}
@@ -85,8 +85,8 @@ class Table extends Component {
         </thead>
         <tbody>
           {data.map((row, rowIndex) =>
-            (<tr key={row.key || strToHash(`row-${JSON.stringify(row)}`)} role="row" tabIndex={0} data-id={rowIndex} onClick={this.handleClick} className={[(rowIndex % 2 === 1) && striped ? 'row--striped' : '', this.state.selectedRows.includes(rowIndex) ? 'row--selected' : ''].join(' ')}>
-              {displayRowCheckbox ? <td styleName="column--checkbox"><input aria-label="select" type="checkbox" checked={this.state.selectedRows.includes(rowIndex)} /></td> : ''}
+            (<tr key={row.key || strToHash(`row-${JSON.stringify(row)}`)} role="row" tabIndex={0} data-id={rowIndex} onClick={this.handleClick} className={[(rowIndex % 2 === 1) && striped ? 'row_striped' : '', this.state.selectedRows.includes(rowIndex) ? 'row_selected' : ''].join(' ')}>
+              {displayRowCheckbox ? <td styleName="column-checkbox"><input aria-label="select" type="checkbox" checked={this.state.selectedRows.includes(rowIndex)} /></td> : ''}
               {
                 Object.keys(row).map((columnKey, columnIndex) =>
                 (<td key={columnKey} data-id={columnIndex} data-column={columns[columnIndex].value}>{row[columnKey]}</td>))

@@ -5,7 +5,7 @@ import styles from './Badge.scss';
 const Badge = ({ className, style, children, badge, badgeStyle }) =>
   (<div className={className} style={style} styleName="badge">
     {children}
-    <span style={badgeStyle} styleName="badge--mark">{badge}</span>
+    <span style={badgeStyle} styleName="badge-mark">{badge}</span>
   </div>);
 
 

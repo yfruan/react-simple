@@ -7,7 +7,7 @@ table {
   font-size: 16px;
   text-align: left;
 
-  &.table--selectable {
+  &.table_selectable {
     td {
       cursor: pointer;
     }
@@ -21,7 +21,7 @@ table {
     display: block;
     padding: .25em 1em;
 
-    &.column--checkbox {
+    &.column-checkbox {
       display: none;
 
       @include breakpoint(medium) {
@@ -63,11 +63,11 @@ table {
 }
 
 :global {
-  .row--striped {
+  .row_striped {
     background-color: $color-silver;
   }
 
-  .row--selected {
+  .row_selected {
     background-color: $color-lightgrey;
   }
 }

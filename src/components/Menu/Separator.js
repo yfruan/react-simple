@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import styles from './Menu.scss';
 
 const Separator = ({ className, style }) =>
-  (<hr className={className} style={style} styleName="menu--separator" />);
+  (<hr className={className} style={style} styleName="menu-separator" />);
 
 Separator.propTypes = {
   className: PropTypes.string,
